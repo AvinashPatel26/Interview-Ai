@@ -12,9 +12,8 @@ export const analyzeResume = async (req, res) => {
       return res.status(400).json({ message: "Resume required" });
     }
 
-    const filepath = req.file.path;
-
-    const fileBuffer = await fs.promises.readFile(filepath);
+   
+    const fileBuffer = req.file.buffer;
     const uint8Array = new Uint8Array(fileBuffer);
 
     const pdf = await pdfjsLib.getDocument({ data: uint8Array }).promise;
@@ -68,8 +67,6 @@ Return strictly JSON:
       };
     }
 
-    await fs.promises.unlink(filepath);
-
     return res.status(200).json({
       message: "Resume analyzed successfully",
       role: parsed.role || "",
@@ -88,7 +85,6 @@ Return strictly JSON:
     });
   }
 };
-
 
 // ------------------ GENERATE QUESTIONS ------------------
 export const generateQuestion = async (req, res) => {
