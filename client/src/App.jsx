@@ -11,7 +11,7 @@ import InterviewReport from "./pages/InterviewReport";
 import Pricing from "./pages/Pricing";
 import InterviewHistory from "./pages/InterviewHistory";
 
-export const ServerUrl = "http://localhost:8000";
+export const ServerUrl = "https://interviewit-ai.onrender.com";
 
 function App() {
   const dispatch = useDispatch();
