@@ -16,7 +16,7 @@ const app = express();
 // ✅ CORS (adjust port if needed)
 app.use(
     cors({
-        origin: "http://localhost:5173",
+        origin: "https://interview-ai-dl0f.onrender.com",
         credentials: true,
     })
 );
